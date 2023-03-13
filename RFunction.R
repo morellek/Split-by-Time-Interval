@@ -8,7 +8,7 @@ library('lubridate')
 ## to display messages to the user in the log file of the App in MoveApps one can use the function from the logger.R file: 
 # logger.fatal(), logger.error(), logger.warn(), logger.info(), logger.debug(), logger.trace()
 
-rFunction = function(data, yrjn=FALSE, itv="monthly") {
+rFunction = function(data, yrjn=FALSE, itv=NULL) {
   
   if (yrjn==TRUE)
   {
@@ -26,35 +26,19 @@ rFunction = function(data, yrjn=FALSE, itv="monthly") {
                                    month = paste(year, month(timestamp), sep="-"))
   }
   
-  if (itv=="daily") 
-    {
-    logger.info("Your data were split by Julian date/day.")
-    mt_track_id(data) <- paste(mt_track_id(data),data$day,sep="-")
+  if (is.null(itv)) itv <- "null"
+
+  if (itv %in% c("day","week","month","year"))
+  {
+    logger.info(paste0("Your data were split by ",itv,"."))
+    eval(parse(text=paste0("mt_track_id(data) <- paste(mt_track_id(data),data$",itv,",sep='-')")))
     data.split <- split(data,mt_track_id(data))
     result <- mt_stack(data.split)
-    } else if (itv=="weekly")
-    {
-      logger.info("Your data were split by calender week.")
-      mt_track_id(data) <- paste(mt_track_id(data),data$week,sep="-")
-      data.split <- split(data,mt_track_id(data))
-      result <- mt_stack(data.split)
-    } else if (itv=="monthly")
-    {
-      logger.info("Your data were split by month.")
-      mt_track_id(data) <- paste(mt_track_id(data),data$month,sep="-")
-      data.split <- split(data,mt_track_id(data))
-      result <- mt_stack(data.split)
-    } else if(itv=="yearly")
-    {
-      logger.info("Your data were split by year.")
-      mt_track_id(data) <- paste(mt_track_id(data),data$year,sep="-")
-      data.split <- split(data,mt_track_id(data))
-      result <- mt_stack(data.split)
-    } else
-    {
-      logger.info("No split interval provided. Input data are returned.")
+  } else
+  {
+      logger.info("No valid split interval provided. Input data are returned.")
       result <- data
-    }
-  
+  }
+    
  return(result) 
 }

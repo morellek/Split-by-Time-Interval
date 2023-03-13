@@ -24,7 +24,7 @@ outputFileName = "./data/output/output.rds"
 args <- list() # if your function has no arguments, this line still needs to be active
 # Add all your arguments of your r-function here
 args[["yrjn"]] = FALSE
-args[["itv"]] ="weekly" #"daily", "weekly", "monthly", "yearly"
+args[["itv"]] = "week" #NULL, "week" #"day", "week", "month", "year"
 
 ##############################
 ## source, setup & simulate ## leave as is!
