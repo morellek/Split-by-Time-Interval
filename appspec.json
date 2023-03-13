@@ -1,63 +1,86 @@
 {
   "settings": [
     {
-      "id": "year",
-      "name": "The year.",
-      "description": "Insert description for the year setting setting",
-      "defaultValue": 2022,
-      "type": "INTEGER"
+      "id": "yrjn",
+      "name": "Merge intervals over the years?",
+      "description": "Do you want to merge intervals over years (looking at seasonal processes) or keep them separate between years (looking at processes independent of season).",
+      "defaultValue": false,
+      "type": "CHECKBOX"
+    },
+    {
+      "id": "itv",
+      "name": "Interval for data split",
+      "description": "By which interval do you want to split your data?",
+      "defaultValue": null,
+      "type": "RADIOBUTTONS",
+      "options": [
+        {
+          "value": "day",
+          "displayText": "day"
+        },
+		{
+          "value": "week",
+          "displayText": "week"
+        },
+		{
+          "value": "month",
+          "displayText": "month"
+        },
+		{
+          "value": "year",
+          "displayText": "year"
+        }
+      ]
     }
   ],
   "dependencies": {
     "R": [
       {
         "name": "lubridate",
-        "version": "1.7.10"
       },
       {
-        "name": "move"
-      }
+        "name": "move2"
+      },
+	  {
+        "name": "tidyverse"
+      },
     ]
   },
-  "createsArtifacts": true,
   "license": {
     "key": "MIT"
   },
   "language": "eng",
   "keywords": [
-    "example",
-    "template"
+    "split",
+    "day",
+	"week",
+	"month",
+	"year"
   ],
   "people": [
-    {
-      "firstName": "Charles",
+{
+      "firstName": "Andrea",
       "middleInitials": null,
-      "lastName": "Darwin",
-      "email": "creator@example.com",
-      "roles": [
-        "author",
-        "creator"
-      ],
+      "lastName": "Kölzsch",
+      "email": "akoelzsch@ab.mpg.de",
+      "roles": ["author", "creator"],
+      "orcid": "0000-0003-0193-1563",
+      "affiliation": "Max-Planck-Institute of Animal Behavior",
+      "affiliationRor": "https://ror.org/026stee22"
+    },
+	{
+      "firstName": "Kevin",
+      "middleInitials": null,
+      "lastName": "Morelle",
+      "email": "kmorelle@ab.mpg.de",
+      "roles": ["author","contributor"],
       "orcid": null,
-      "affiliation": null,
-      "affiliationRor": null
-    }
-  ],
-  "funding": [
-    {
-      "name": "funder name",
-      "comment": "grant for App"
-    }
-  ],
-  "references": [
-    {
-      "type": "IsDescribedBy",
-      "note": "Darwin, C. 1900. The creation. Journal XY. 1-2",
-      "url": "https://anylink.xyz"
+      "affiliation": "Max-Planck-Institute of Animal Behavior",
+      "affiliationRor": "https://ror.org/026stee22"
     }
   ],
   "documentation": {
-    "url": "https://github.com/yourAccount/my-app/README.md"
+    "url": "https://github.com/movestore/Split-by-Time-Interval"
   }
 }
 

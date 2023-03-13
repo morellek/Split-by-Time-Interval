@@ -1,37 +1,29 @@
-# Name of App *(Give your app a short and informative title. Please adhere to our convention of Title Case without hyphens (e.g. My New App))*
+# Split by Time Interval
 
 MoveApps
 
-Github repository: *github.com/yourAccount/Name-of-App* *(the link to the repository where the code of the app can be found must be provided)*
+Github repository: *github.com/movestore/Split-by-Time-Interval*
 
 ## Description
-*Enter here the short description of the App that might also be used when filling out the description when submitting the App to Moveapps. This text is directly presented to Users that look through the list of Apps when compiling Workflows.*
+Splits your data set by year, month, week or Julian day to be analysed as separate tracks in further Apps. Possible to join time intervals over years or not.
 
 ## Documentation
-*Enter here a detailed description of your App. What is it intended to be used for. Which steps of analyses are performed and how. Please be explicit about any detail that is important for use and understanding of the App and its outcomes.*
+This App appends to the data the attributes year, month, week and Julian day. According to the selection of the user, the data set will then be split into separate tracks by individual and year, month, week or day. It is possible to select that the intervals will be joined over years, which makes sense if one wants ot explore general differences between seasons. For general time adaptation processes this might not be sensible.
 
 ### Input data
-*Indicate which type of input data the App requires. Currently only R objects of class `MoveStack` can be used. This will be extend in the future.*
-
-*Example*: MoveStack in Movebank format
+move2 location object
 
 ### Output data
-*Indicate which type of output data the App produces to be passed on to subsequent apps. Currently only R objects of class `MoveStack` can be used. This will be extend in the future. In case the App does not pass on any data (e.g. a shiny visualization app), it can be also indicated here that no output is produced to be used in subsequent apps.*
-
-*Example:* MoveStack in Movebank format
+move2 location object
 
 ### Artefacts
-*If the App creates artefacts (e.g. csv, pdf, jpeg, shapefiles, etc), please list them here and describe each.*
-
-*Example:* `rest_overview.csv`: csv-file with Table of all rest site properties
+none.
 
 ### Settings 
-*Please list and define all settings/parameters that the App requires to be set by the App user, if necessary including their unit.*
-
-*Example:* `Radius of resting site` (radius): Defined radius the animal has to stay in for a given duration of time for it to be considered resting site. Unit: `metres`.
+ `Radius of resting site` (radius): Defined radius the animal has to stay in for a given duration of time for it to be considered resting site. Unit: `metres`.
 
 ### Most common errors
-*Please describe shortly what most common errors of the App can be, how they occur and best ways of solving them.*
+none yet.
 
 ### Null or error handling
 *Please indicate for each setting as well as the input data which behaviour the App is supposed to show in case of errors or NULL values/input. Please also add notes of possible errors that can happen if settings/parameters are improperly set and any other important information that you find the user should be aware of.*
