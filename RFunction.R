@@ -38,6 +38,7 @@ rFunction = function(data, yrjn=FALSE, itv=NULL) {
   {
       logger.info("No valid split interval provided. Input data are returned.")
       result <- data
+    
   }
     
  return(result) 
